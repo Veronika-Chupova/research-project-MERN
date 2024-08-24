@@ -21,7 +21,7 @@ mongoose
     .catch (error => console.log(error))
 
 //GLOBAL MIDDLEWARE
-app.use(express.static(root))
+// app.use(express.static(root))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors({
