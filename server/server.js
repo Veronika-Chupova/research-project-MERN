@@ -12,7 +12,7 @@ const root = path.join(__dirname, '..', 'client', 'build')
 const PORT = process.env.PORT || 3500
 
 const app = express()
-dotenv.config({path: path.join(__dirname, '.env')})
+// dotenv.config({path: path.join(__dirname, '.env')})
 
 //DB connection
 const connectionURI = String(process.env.MONGO_URI)
