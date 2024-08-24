@@ -12,7 +12,7 @@ const root = path.join(__dirname, '..', 'client', 'build')
 const PORT = process.env.PORT || 3500
 
 const app = express()
-dotenv.config()
+dotenv.config({path: path.join(__dirname, '.env')})
 
 //DB connection
 const connectionURI = String(process.env.MONGO_URI)
@@ -42,7 +42,8 @@ const Sample = mongoose.model("Sample",sampleSchema)
 
 //Making Server to serve react app
 app.get("*", (req, res) => {
-    res.sendFile('index.html', { root })
+    // res.sendFile('index.html', { root })
+    res.send ('server success!')
 })
 
 //API
