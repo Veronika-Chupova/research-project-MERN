@@ -21,7 +21,7 @@ mongoose
     .catch (error => console.log(error))
 
 //GLOBAL MIDDLEWARE
-// app.use(express.static(root))
+app.use(express.static(root))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors({
@@ -42,8 +42,7 @@ const Sample = mongoose.model("Sample",sampleSchema)
 
 //Making Server to serve react app
 app.get("*", (req, res) => {
-    // res.sendFile('index.html', { root })
-    res.send ('server success!')
+    res.sendFile('index.html', { root })
 })
 
 //API
@@ -63,5 +62,5 @@ app.post('/submission', (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log ('Server is Up on Port 3500')
+    console.log ('Server is Up')
 })
