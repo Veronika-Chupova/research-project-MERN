@@ -17,8 +17,12 @@ const app = express()
 //DB connection
 const connectionURI = String(process.env.MONGO_URI)
 mongoose
-    .connect(connectionURI)
-    .catch (error => console.log(error))
+    .connect(connectionURI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+    .then(() => console.log('MongoDB connected successfully'))
+    .catch(err => console.error('MongoDB connection error:', err))
 
 //GLOBAL MIDDLEWARE
 app.use(express.static(root))
