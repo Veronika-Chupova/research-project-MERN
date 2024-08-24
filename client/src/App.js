@@ -42,7 +42,7 @@ function App({ isNewUser }) {
         userLog.current.push({'finish page is opened': time})
 
           if (userData.current?.pwd.length>0 && userData.current?.pin.length>0) {
-            fetch('http://localhost:3500/submission', {
+            fetch('https://research-project-main-7b7d74af6ebc.herokuapp.com/submission', {
                 method: 'POST',
                 headers: {"Content-type" : "application/json"},
                 body: JSON.stringify({
