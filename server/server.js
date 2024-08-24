@@ -25,7 +25,7 @@ app.use(express.static(root))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://research-project-main-7b7d74af6ebc.herokuapp.com/",
     credentials: true
 }))
 
