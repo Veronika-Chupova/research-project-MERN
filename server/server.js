@@ -41,30 +41,9 @@ const sampleSchema = new mongoose.Schema ({
 const Sample = mongoose.model("Sample",sampleSchema)
 
 //Making Server to serve react app
-
-// const buildPath = path.join(__dirname,'../client/build')
 app.get("*", (req, res) => {
     res.sendFile('index.html', { root })
 })
-
-// app.get('/*', (req,res) => {
-//     res.sendFile(
-//         // /Users/veronika/Desktop/Web Dev/Dissertation/project/client/build/index.html
-//         (buildPath + '/index.html'),
-//         // path.join(_dirname, '/client/build/index.html'),
-//         err => {
-//             console.log('shit happened')
-//             if (err) {
-//                 res.status(500).send(err)
-//             }
-//         }
-//     )
-// })
-
-
-// app.get('/', (req, res) => {
-//     res.send ('Hello World!')
-// })
 
 //API
 app.post('/submission', (req, res) => {
