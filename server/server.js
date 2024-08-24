@@ -62,6 +62,5 @@ app.post('/submission', (req, res) => {
 
 
 app.listen(PORT, () => {
-    console.log(root)
     console.log ('Server is Up on Port 3500')
 })
