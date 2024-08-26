@@ -10,9 +10,9 @@ function Submission ({ open, setOpen, submitData }) {
 
     function handleConfirmation (event) {
         setOpen(false)
-        const submissionStatus = submitData(event)
+        const result = submitData(event)
 
-        if (submissionStatus === 'ok') {
+        if (result == 'ok') {
             navigate('/complete')
         }
     }
