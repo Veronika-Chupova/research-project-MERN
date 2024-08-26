@@ -6,10 +6,11 @@ import NumLine from './NumLine'
 import Submission from './Submission'
 import PageDotPointer from './PageDotPointer'
 import NavigationButton from './NavigationButton'
+import MissingDataWarn from './MissingDataWarn'
 
 import { v4 as uuidv4 } from 'uuid'
  
-function PinPage ({ userData, keyboard, submitData, userLog }) {
+function PinPage ({ userData, keyboard, submitData, userLog, consent }) {
     const navigate = useNavigate()
     const [userGeneratedContent, setUserContent] = useState ({
         mainData: userData.current.pin,
@@ -20,6 +21,7 @@ function PinPage ({ userData, keyboard, submitData, userLog }) {
     const [pinProblem, setPinProblem] = useState (false)
     const [keyboardVisibility, setKeyboardVisibility] = useState ('hidden')
     const [isModalOpen, setModalOpen] = useState (false)
+    const [isDataWarnOpen, setDataWarnOpen] = useState (false)
     const formRef = useRef (null)
 
     useEffect (() => {
@@ -34,19 +36,20 @@ function PinPage ({ userData, keyboard, submitData, userLog }) {
     function handleButtonClick (event) { //optimize
         const {name} = event.target
         const readyStatus = (userGeneratedContent.mainData === userGeneratedContent.controlData && userGeneratedContent.mainData.length == 4)
+        const fullConsent = Boolean(consent.current?.age) && Boolean(consent.current?.participantInfo) && Boolean(consent.current?.termsOfUse)
 
         setKeyboardVisibility('hidden')
         if (name=='prev') {
             navigate('/passcheck')
-        }
-        if ((name=='next' || name=='submit') && readyStatus) {
+        } else if ((name=='next' || name=='submit') && readyStatus && fullConsent && userData.current?.pwd.length>0) {
             userData.current.pin = userGeneratedContent.mainData
             setPinProblem (false)
             setModalOpen (true)
-        }
-        if ((userGeneratedContent.mainData != userGeneratedContent.controlData && userGeneratedContent.mainData.length != 0) || 
+        } else if ((userGeneratedContent.mainData != userGeneratedContent.controlData && userGeneratedContent.mainData.length != 0) || 
             userGeneratedContent.mainData.length === 0) {
                 setPinProblem(true)
+        } else {
+            setDataWarnOpen (true)
         }
     }
 
@@ -102,6 +105,9 @@ function PinPage ({ userData, keyboard, submitData, userLog }) {
     </div>
     <div className={isModalOpen ? '' : 'hidden'}>
         <Submission open={isModalOpen} setOpen={setModalOpen} submitData={submitData} />
+    </div>
+    <div className={isDataWarnOpen ? '' : 'hidden'}>
+        <MissingDataWarn open={isDataWarnOpen} setOpen={setDataWarnOpen} />
     </div>
     </div>   
  }
