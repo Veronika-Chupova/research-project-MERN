@@ -1,4 +1,4 @@
-import {Route, Routes } from 'react-router-dom'
+import {Route, Routes, useNavigate } from 'react-router-dom'
 import { useRef, useEffect } from 'react'
 import './App.css'
 import StartPage from './StartPage'
@@ -25,17 +25,13 @@ function App({ isNewUser }) {
   const userLog = useRef([])
   const keyboard = useRef (setKeyboard())
   const numboard = useRef (setNumboard())
+  const navigate = useNavigate()
   const isMobile = /Android|iPhone/i.test(userDevice)
-  
 
   useEffect (() => {
     const now = Date.now()
     userLog.current.push({'initialisation': now})
   }, [])
-
-  useEffect (() => {
-
-  })
   
   function handleSubmission (event) {
         event.preventDefault()
@@ -59,13 +55,11 @@ function App({ isNewUser }) {
             }).then((res) => {
               submissionStatus = 'ok'
               localStorage.setItem('visit', Date.now())
+              navigate('/complete')
             }).catch(error => {
               console.log('Posting went wrong!')
             })
-        } else {
-            submissionStatus = 'data problem'
         }
-        return submissionStatus
   }
   
   return <>
