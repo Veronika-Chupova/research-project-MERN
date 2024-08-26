@@ -64,7 +64,7 @@ function PinPage ({ userData, keyboard, submitData, userLog }) {
         <h3 className='text-2xl text-violet-500 pointer-events-none mb-1'>Create a 4-digit PIN code</h3>
         <h5 className='block text-md font-light mb-8 pointer-events-none'>Do not use your active PIN codes</h5>
         <div ref={formRef} className={pinProblem ? 'mb-10 text-red-500 pointer-events-none' : 'mb-10 text-red-500 invisible'}>
-            <p>PIN codes don't match or don't satisfy criteria</p>
+            <p>PIN codes don't match or don't satisfy the criteria</p>
         </div>
         <form>
             {Object.entries(userGeneratedContent).map( element => 

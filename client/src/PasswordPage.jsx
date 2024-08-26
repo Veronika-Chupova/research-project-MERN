@@ -8,7 +8,6 @@ import NavigationButton from './NavigationButton'
 import PageDotPointer from './PageDotPointer'
 import PasswordCriteria from './PasswordCriteria'
 import RequirementsWarn from './RequirementsWarn'
-// import RefreshWarn from './RefreshWarn'
 import getSize from './getlettersize'
 import { v4 as uuidv4 } from 'uuid'
  
@@ -25,7 +24,6 @@ function PasswordPage ({ userData, keyboard, userLog }) {
     const [keyboardVisibility, setKeyboardVisibility] = useState ('hidden')
     const [isPrevModalOpen, setPrevModalOpen] = useState (false)
     const [isNextModalOpen, setNextModalOpen] = useState()
-    // const [isRefreshModalOpen, setRefreshModalOpen] = useState (false)
     const formRef = useRef(null)
 
     useEffect (() => {
@@ -44,7 +42,7 @@ function PasswordPage ({ userData, keyboard, userLog }) {
       }, [])
 
     const passwordCriteria = [
-        {title: 'At least 8 caracters',
+        {title: 'At least 8 characters',
         control: userGeneratedContent.mainData.length > 7},
         {title: 'Both upper and lower case letters',
         control: (/[A-Z]/).test(userGeneratedContent.mainData) && (/[a-z]/).test(userGeneratedContent.mainData)},
@@ -149,7 +147,6 @@ function PasswordPage ({ userData, keyboard, userLog }) {
         <div className={isPrevModalOpen || isNextModalOpen ? '' : 'hidden'}>
             <Discard open={isPrevModalOpen} setOpen={setPrevModalOpen} userData={userData} />
             <RequirementsWarn open={isNextModalOpen} setOpen={setNextModalOpen} />
-            {/* <RefreshWarn open={isRefreshModalOpen} setOpen={setRefreshModalOpen} path='/passcheck'/> */}
         </div>
     </div>   
  }

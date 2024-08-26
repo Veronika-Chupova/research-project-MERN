@@ -40,7 +40,7 @@ function ConsentBlock ({ id, children, userConsent, setConsent, consentMark, blo
                             consentStatus={Boolean(userConsent['age'])}
                             setConsent={setConsent}
                             inputName='age'
-                            signatureText='I am a capabale person over 18 years old'
+                            signatureText='I am a capable person over 18 years old'
                         />
                     </>
                 }
