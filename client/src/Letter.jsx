@@ -65,9 +65,11 @@ function Letter ({ content, upper_case, aggregator, active_field, size, letters,
         >
             <div style={style} className='z-20 relative flex items-center justify-center inline-block rounded-md h-11 outline outline-1 outline-transparent bg-white focus:outline-none pointer-events-none'>
                 {pressed ?
-                    <div style={style_dbl} className='bg-white h-14 absolute -top-16 -left-4 rounded-md flex items-center justify-center z-10 border border-solid border-gray-400 pointer-events-none'>
-                        <div style={style_rot} className='bg-white rotate-45 absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 z-10 pointer-events-none'></div>
-                        <p className={'text-2xl z-10 pointer-events-none '  + output_size}>{output}</p>
+                    <div className='relative inline-block rounded-md h-full w-full border border-solid border-gray-400 bg-white focus:outline-none pointer-events-none'>
+                        <div style={style_dbl} className='bg-white h-14 absolute -top-16 -left-4 rounded-md flex items-center justify-center z-10 border border-solid border-gray-400 pointer-events-none'>
+                            <div style={style_rot} className='bg-white rotate-45 absolute left-1/2 bottom-0 -translate-x-1/2 translate-y-1/2 z-10 pointer-events-none'></div>
+                            <p className={'text-2xl z-10 pointer-events-none '  + output_size}>{output}</p>
+                        </div>
                     </div> :
                     <p className={'pointer-events-none '  + output_size}>{output}</p>
                 }
