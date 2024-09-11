@@ -30,7 +30,7 @@ function ParticipantInfoText () {
             </ul>
         <p><span >&nbsp;</span></p>
         <p><u><span>How will the collected data be handled and used?</span></u></p>
-        <p><span >Up to the end of the data collection phase on 09 September 2024, the anonymous data will be stored securely in the cloud-based database, to which only the research author has access. In the data analysis phase, the anonymous data accrued in the previous step will be moved onto a researcher&apos;s local drive outside any network and inaccessible to a third party. Then, the results of the data analysis will be published as a part of the Master&apos;s dissertation.&nbsp;</span></p>
+        <p><span >Up to the end of the data collection phase on 15 September 2024, the anonymous data will be stored securely in the cloud-based database, to which only the research author has access. In the data analysis phase, the anonymous data accrued in the previous step will be moved onto a researcher&apos;s local drive outside any network and inaccessible to a third party. Then, the results of the data analysis will be published as a part of the Master&apos;s dissertation.&nbsp;</span></p>
         <p><span >The data will be stored and analysed in plain text. After the University checks are completed and the research project is marked, the data will be destroyed with no recovery option.</span></p>
         <p><span >&nbsp;</span></p>
         <p><u><span>Informed consent</span></u></p>
