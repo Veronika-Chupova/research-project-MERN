@@ -87,7 +87,8 @@ function PinPage ({ userData, keyboard, submitData, userLog, consent }) {
             )}
             <div className='flex justify-between mt-10 text-white font-black mb-20'>
                 <NavigationButton buttonType='left' handleButtonClick={handleButtonClick} />
-                <NavigationButton buttonType='submit' handleButtonClick={handleButtonClick} />
+                {/* <NavigationButton buttonType='submit' handleButtonClick={handleButtonClick} />     This part is for active experiment */}
+                <NavigationButton buttonType='submit' handleButtonClick={() => navigate('/')} />        {/* This part is for after research */}
             </div>
             <PageDotPointer dotCount={2} activeDot={2} />
         </form>

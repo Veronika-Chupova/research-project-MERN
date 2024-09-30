@@ -4,6 +4,7 @@ import ConsentBlock from './ConsentBlock'
 import ParticipantInfoText from './Info'
 import TermsOfUseText from './Terms'
 import { startPageText } from './assets/startpagetext'
+import report from './assets/ResultReport.pdf'
  
 function StartPage ({ currentConsent }) {
     const navigate = useNavigate ()
@@ -28,8 +29,9 @@ function StartPage ({ currentConsent }) {
                 <h3 className='text-2xl text-violet-500 mb-5'>{startPageText.title}</h3>
                 <p className='text-sm font-light mb-5'>{startPageText.researchInfo}</p>
                 <form >
-                    <p className='text-sm font-light mb-5'>{startPageText.callToAction}</p>
-                    <div >
+                    {/* <p className='text-sm font-light mb-5'>{startPageText.callToAction}</p>     This part is for active experiment phase */}
+                    <p className='text-sm font-light mb-5'>{startPageText.notification}</p>     {/* This part is for after study period */}
+                    {/* <div >      This part is for active experiment phase
                     <ConsentBlock 
                         id ={1}
                         userConsent={userConsent}
@@ -50,15 +52,27 @@ function StartPage ({ currentConsent }) {
                     >
                         <TermsOfUseText />   
                     </ConsentBlock>
-                    </div>
+                    </div> */}
                     <div className='text-center'>
                         <button 
-                            onClick={handleStartPress} 
-                            className={'min-w-32 h-8 rounded mt-14 text-white font-black mb-20 '+startButtonStyle} 
+                            // onClick={handleStartPress}   This part is for active experiment phase
+                            onClick={() => navigate ('/passcheck')}     //This part is for after study period
+                            // className={'min-w-44 h-8 rounded mt-14 text-white font-black mb-10 '+startButtonStyle}   This part is for active experiment phase
+                            className={'min-w-44 h-8 rounded mt-14 text-white font-black mb-10 bg-green-500 active:bg-green-700'}   //This part is for after study period
                             type='button'
                         >
                             <p className='inline text-md font-semibold'>Start</p>
                         </button>
+                    </div>
+                    <div className='text-center'>
+                        <a href={report} target='_blank' rel='noreferrer'>
+                            <button 
+                                className={'min-w-44 h-8 rounded text-white font-black mb-20 bg-red-500 active:bg-green-700'} 
+                                type='button'
+                            >
+                                <p className='inline text-md font-semibold'>Research Results</p>
+                            </button>
+                        </a>
                     </div>
                 </form>
             </div>
