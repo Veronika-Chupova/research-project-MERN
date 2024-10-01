@@ -5,7 +5,8 @@ import App from './App'
 import './index.css'
 import reportWebVitals from './reportWebVitals'
 
-const isNewUser = !Boolean(localStorage.getItem('visit'))
+// const isNewUser = !Boolean(localStorage.getItem('visit'))    For experiment period
+const isNewUser = true    //For AFTER experiment period
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
